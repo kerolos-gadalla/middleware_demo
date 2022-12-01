@@ -61,9 +61,6 @@ class MiddleWare1:
             if not request.user.is_authenticated:
                 # or whatever data you want to return
                 return render(request, 'posts/not_authorized.html', {}, status=401)
-
-        return self.get_response(request)
-
         response = self.get_response(request)
         logger.debug(f"L2 {response}")
         logger.debug(
