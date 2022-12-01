@@ -56,8 +56,9 @@ class MiddleWare1:
         logger.debug(
             f"L2 {request.path} and id {id(request)}")
 
-        if 'create' in request.path:
-            if request.user.is_authenticated:
+        if (('posts' in request.path and request.method == 'POST') or
+                ('create' in request.path)):
+            if not request.user.is_authenticated:
                 # or whatever data you want to return
                 return render(request, 'posts/not_authorized.html', {}, status=401)
 
