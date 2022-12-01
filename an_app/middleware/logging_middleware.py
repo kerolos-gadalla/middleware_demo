@@ -59,7 +59,7 @@ class MiddleWare1:
         if 'create' in request.path:
             if request.user.is_authenticated:
                 # or whatever data you want to return
-                return render(request, 'an_app:not_authorized', status=401)
+                return render(request, 'posts/not_authorized.html', {}, status=401)
 
         return self.get_response(request)
 

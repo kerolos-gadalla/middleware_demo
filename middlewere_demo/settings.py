@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'an_app.middleware.logging_middleware.MiddleWare1',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,7 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'an_app.middleware.logging_middleware.loggingMiddlewareFactory',
+    'an_app.middleware.logging_middleware.MiddleWare1',
+    # 'an_app.middleware.logging_middleware.loggingMiddlewareFactory',
 ]
 
 ROOT_URLCONF = 'middlewere_demo.urls'
