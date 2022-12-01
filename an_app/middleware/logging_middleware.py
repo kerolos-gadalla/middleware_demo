@@ -67,8 +67,23 @@ class MiddleWare1:
             f"L2 {response.status_code}")
         return response
 
+
+
+class MiddleWareExceptionCount:
+
+    def __init__(self, get_response) -> None:
+        self.get_response = get_response
+        self.count_exceptions = 0
+
+    def __call__(self, request):
+        # add all exceptions to each request
+        request.total_exception_count = self.count_exceptions
+        response = self.get_response(request)
+        return response
+
     # def process_template
 
     def process_exception(self, request, exception):
         self.count_exceptions += 1
         logger.error(f"Encountered {self.count_exceptions} exceptions so far")
+

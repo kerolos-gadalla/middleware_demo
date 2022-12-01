@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'an_app.middleware.logging_middleware.MiddleWare1',
+    'an_app.middleware.logging_middleware.MiddleWareExceptionCount',
     # 'an_app.middleware.logging_middleware.loggingMiddlewareFactory',
 ]
 

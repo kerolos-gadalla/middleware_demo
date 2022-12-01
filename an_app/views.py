@@ -37,3 +37,12 @@ class DemoView(View):
         content = request.POST.get('content')
         post = PostModel.objects.create(name=name, content=content)
         return redirect('an_app:post_view', post_id=f'{post.id}')
+
+
+class MakeException(View):
+
+    def get(self, request):
+        return render(request, 'except/exception_portal.html', {'count': request.total_exception_count})
+
+    def post(self, request):
+        1 / 0

@@ -1,0 +1,8 @@
+<h1>Exception Portal</h1>
+<form action="{% url 'an_app:except' %}" method="post">
+  {% csrf_token %}
+
+  <input type="submit" value="Make new exception" />
+</form>
+
+<h1>TOTAL exceptions is {{count}}</h1>
