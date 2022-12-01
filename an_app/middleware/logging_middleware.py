@@ -1,11 +1,14 @@
 import logging
 
+from django.shortcuts import render
+
 logger = logging.getLogger(__name__)
 
 
 class Log:
     def debug(self, *a, **kw):
         return print(*a, **kw)
+
     def error(self, *a, **kw):
         return print(*a, **kw)
 
@@ -52,13 +55,22 @@ class MiddleWare1:
 
         logger.debug(
             f"L2 {request.path} and id {id(request)}")
+
+        if 'create' in request.path:
+            if request.user.is_authenticated:
+                # or whatever data you want to return
+                return render(request, 'an_app:not_authorized', status=401)
+
+        return self.get_response(request)
+
         response = self.get_response(request)
         logger.debug(f"L2 {response}")
         logger.debug(
             f"L2 {response.status_code}")
         return response
 
-    
+    # def process_template
+
     def process_exception(self, request, exception):
         self.count_exceptions += 1
         logger.error(f"Encountered {self.count_exceptions} exceptions so far")
