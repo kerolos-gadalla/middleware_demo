@@ -1,0 +1,25 @@
+<h1> Create new Post</h1>
+<form action="{% url 'an_app:post_create' %}" method="post">
+  {% csrf_token %}
+  <fieldset>
+    {% comment %} <legend><h1>{{ question.question_text }}</h1></legend> {% endcomment %}
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %} 
+    
+    <input
+      type="text"
+      name="name"
+      id="name"
+      value=""
+    />
+    <input
+      type="textarea"
+      name="content"
+      id="content"
+      value=""
+    />
+    ><br />
+  </fieldset>
+  <input type="submit" value="Create" />
+</form>

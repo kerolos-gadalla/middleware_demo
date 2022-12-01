@@ -1,0 +1,8 @@
+<h1>Listing posts</h1>
+
+{% for post in posts %}
+<li>
+  <h4>{{ post.name }}</h4>
+  <p>{{ post.content }}</p>
+</li>
+{% endfor %} 
