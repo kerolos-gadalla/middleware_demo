@@ -40,9 +40,15 @@ INSTALLED_APPS = [
     'an_app',
 ]
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = True
+
 MIDDLEWARE = [
+    'an_app.middleware.full_print.ExampleMiddleware',
+    'an_app.middleware.log_request.LogMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'an_app.middleware.logging_middleware.loggingMiddlewareFactory',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'an_app.middleware.log_request.LogMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
