@@ -1,4 +1,8 @@
 
+### Django Request
+
+![Life cycle](assets/img.webb)
+
 ### Middleware life cycle
 
 ![Life cycle](assets/lifecycle.png)
@@ -63,7 +67,7 @@ class ExampleMiddleware:
 - UpdateCacheMiddleware
 
 - CommonMiddleware
-    - This is curious
+  - This is curious
 
     ```ruby
     If APPEND_SLASH is True and the initial URL doesn’t end with a slash, and it is not found in the URLconf, then a new URL is formed by appending a slash at the end. If this new URL is found in the URLconf, then Django redirects the request to this new URL. Otherwise, the initial URL is processed as usual.
