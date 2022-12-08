@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from django.http import Http404
 from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from an_app.models import PostModel
@@ -46,3 +47,8 @@ class MakeException(View):
 
     def post(self, request):
         1 / 0
+
+
+class TestNoRender(View):
+    def get(self, request):
+        return HttpResponse("Hello")

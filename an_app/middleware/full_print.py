@@ -10,8 +10,9 @@ class ExampleMiddleware:
         print("called ExampleMiddleware")
 
         # Code that is executed in each request before the view is called
-
+        self.process_request(request)
         response = self.get_response(request)
+        response = self.process_response(request, response)
 
         # Code that is executed in each request after the view is called
         return response
@@ -27,4 +28,12 @@ class ExampleMiddleware:
     def process_template_response(self, request, response):
         # This code is executed if the response contains a render() method
         print("called process_template_response")
+        return response
+
+    def process_request(self, request):
+        print("called process_request")
+
+    def process_response(self, request, response):
+        print("called process_response")
+
         return response
